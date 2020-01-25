@@ -1,0 +1,27 @@
+-- begin_signature
+-- sprite_rom
+-- end_signature
+WIDTH=3;
+DEPTH=16;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	15 :	110;
+	14 :	110;
+	13 :	110;
+	12 :	110;
+	11 :	110;
+	10 :	110;
+	9 :	110;
+	8 :	110;
+	7 :	110;
+	6 :	110;
+	5 :	110;
+	4 :	110;
+	3 :	110;
+	2 :	110;
+	1 :	110;
+	0 :	110;
+END;

@@ -1,0 +1,274 @@
+module system_de2(
+	input					CLOCK_50,
+	input 		[2:0] KEY,
+	input			[4:0] SW,
+	
+	inout					PS2_CLK,
+	inout					PS2_DAT,
+	
+	output				[0:0]LEDR,
+	output				VGA_CLK,   				//	VGA Clock
+	output				VGA_HS,					//	VGA H_SYNC
+	output				VGA_VS,					//	VGA V_SYNC
+	output				VGA_BLANK,				//	VGA BLANK
+	output				VGA_SYNC,				//	VGA SYNC
+	output [9:0]		VGA_R,   				//	VGA Red[9:0]
+	output [9:0]		VGA_G,	 				//	VGA Green[9:0]
+	output [9:0]		VGA_B,	   				//	VGA Blue[9:0]
+	
+	
+	// LCD Module 16X2
+	output 				LCD_ON,		// LCD Power ON/OFF
+	output 				LCD_BLON,	// LCD Back Light ON/OFF
+	output 				LCD_RW,		// LCD Read/Write Select, 0 = Write, 1 = Read
+	output 				LCD_EN,		// LCD Enable
+	output 				LCD_RS,		// LCD Command/Data Select, 0 = Command, 1 = Data
+	inout [7:0] 		LCD_DATA,		// LCD Data bus 8 bits
+	
+	
+	input       AUD_ADCDAT,
+	inout       AUD_BCLK,
+	inout       AUD_ADCLRCK,
+	inout       AUD_DACLRCK,
+	inout       I2C_SDAT,
+	output      AUD_XCK,
+	output      AUD_DACDAT,
+	output      I2C_SCLK
+	
+);
+
+
+	
+
+	
+	
+	
+/******************KEYBOARD STUFF**************************/	
+	wire [1:0]  direction;
+	wire [7:0]	keycode;
+	wire			ext;
+	wire [7:0]	ps2_key_data;
+	wire			ps2_key_en;
+	wire			keycode_ready;
+	wire			make;
+	wire			startGame;
+	wire [7:0]  realScorefactsB;
+
+get_direction myGet_direction(
+	.clk(CLOCK_50),
+	.rst(~KEY[2]),
+	.ext(ext),
+	.keycode(keycode),
+	.make(make),
+	.direction(direction)
+);
+
+keycode_recognizer myKeycode_recognizer(
+	.clk				(CLOCK_50),
+	.reset_n			(1'b1),
+	.ps2_key_en		(ps2_key_en),
+	.ps2_key_data	(ps2_key_data),
+	.keycode			(keycode),
+	.ext				(ext),
+	.make				(make),
+	.keycode_ready	(keycode_ready)
+);
+
+PS2_Controller myPS2_Controller(
+	.CLOCK_50			(CLOCK_50),
+	.reset				(~KEY[2]),
+	.PS2_CLK				(PS2_CLK),
+	.PS2_DAT				(PS2_DAT),
+	.received_data		(ps2_key_data),
+	.received_data_en	(ps2_key_en)
+);
+
+space_start mySpace_start(
+	.clk(CLOCK_50),
+	.rst(~KEY[2]),
+	.ext(ext),
+	.keycode(keycode),
+	.make(make),
+	.startGame(startGame)
+);
+
+/******************VGA STUFF**************************/	
+	wire [7:0]	x_vga;
+	wire [6:0]	y_vga;
+	wire [2:0]	color_vga;
+	wire			collisionDetect;
+	
+vga_xy_controller my_vga_xy_controller(
+	.CLOCK_50(CLOCK_50), 
+   .resetn(1'b1), 
+   .color(color_vga), 
+   .x(x_vga), 
+   .y(y_vga), 
+   .VGA_R(VGA_R), 
+   .VGA_G(VGA_G), 
+   .VGA_B(VGA_B),
+   .VGA_HS(VGA_HS), 
+   .VGA_VS(VGA_VS), 
+   .VGA_BLANK(VGA_BLANK),
+   .VGA_SYNC(VGA_SYNC), 
+   .VGA_CLK(VGA_CLK)
+);
+
+
+
+
+
+/******************SYSTEM STUFF**************************/
+system mySystem(
+	.CLOCK_50(CLOCK_50),
+	.reset(~KEY[2]),
+	.startGame(startGame),
+	.direction(direction),
+	.VGA_CLK(VGA_CLK),
+	.x_vga(x_vga),
+	.y_vga(y_vga),
+	.color_vga(color_vga),
+	.touchingGhost(SW[1]),
+	.touchingWall(SW[2]),
+	.collisionDetect(collisionDetect),
+	.realScorefactsB(realScorefactsB)
+);
+
+
+wire DLY_RST;
+
+	// reset delay gives some time for peripherals to initialize
+   Reset_Delay r0 (
+      .iCLK		(CLOCK_50),
+      .oRESET	(DLY_RST)
+	);
+   
+
+LCD_ram  lram1(
+		.raddr	(disp_addr),
+		.din 		(realScorefactsB),
+		.dout		(disp_data),
+		.waddr(5'd7),
+		.we(1'b1),
+		.clk(CLOCK_50)
+	);
+	
+
+wire [4:0] disp_addr;
+wire [7:0] disp_data;
+
+LCD_Display u1(
+	// Host Side
+		.iCLK_50MHZ	(CLOCK_50),
+		.iRST_N		(DLY_RST),
+		.oMSG_INDEX	(disp_addr),
+		.iMSG_ASCII	(disp_data),
+	// LCD Side
+		.DATA_BUS	(LCD_DATA),
+		.LCD_RW		(LCD_RW),
+		.LCD_E		(LCD_EN),
+		.LCD_RS		(LCD_RS)
+);
+	
+
+wire				   audio_out_allowed;
+   wire     [31:0]   osc_out;
+	wire     [31:0]   osc1_out;
+	wire     [31:0]   osc2_out;
+	wire     [31:0]   osc3_out;
+	wire					t;
+	wire					reset_out;
+	wire		[5:0]		q;
+
+	
+	
+timerNote myTimer(
+	.clk(CLOCK_50),
+	.en_in(1'b1),
+	.rst(1'b0),
+	.t(t)
+
+);
+
+noteCounter myNote(
+	.clk(CLOCK_50),
+	.rst(1'b0),
+	.enTime(t),
+	.en(1'b1),
+	.reset_out(reset_out),
+	.q(q)
+);
+	
+
+square_wave_osc_JWS mySquare (
+
+	.CLOCK_50(CLOCK_50),
+	.reset(reset_out),
+	.note(q),
+	.out(osc1_out)
+
+);
+
+harm1 mySquare2 (
+
+	.CLOCK_50(CLOCK_50),
+	.reset(reset_out),
+	.note(q),
+	.out(osc2_out)
+
+);
+
+harm2 mySquare22 (
+
+	.CLOCK_50(CLOCK_50),
+	.reset(reset_out),
+	.note(q),
+	.out(osc3_out)
+
+);
+
+add myAdd(
+	.in1(osc1_out),
+	.in2(osc2_out),
+	.in3(osc3_out),
+	.out(osc_out)
+
+);
+
+
+Audio_Controller Audio_Controller (
+
+	// Inputs
+	.CLOCK_50						(CLOCK_50),
+	.reset						   (1'b0),
+	.left_channel_audio_out		(osc_out),
+	.right_channel_audio_out	(osc_out),
+	.write_audio_out			   (audio_out_allowed),
+	.AUD_ADCDAT					   (AUD_ADCDAT),
+	// Bidirectionals
+	.AUD_BCLK					   (AUD_BCLK),
+	.AUD_ADCLRCK				   (AUD_ADCLRCK),
+	.AUD_DACLRCK				   (AUD_DACLRCK),
+	// Outputs
+	.audio_out_allowed			(audio_out_allowed),
+	.AUD_XCK					      (AUD_XCK),
+	.AUD_DACDAT					   (AUD_DACDAT),
+);
+
+
+avconf avc (
+
+	.I2C_SCLK(I2C_SCLK),
+	.I2C_SDAT(I2C_SDAT),
+	.CLOCK_50(CLOCK_50),
+	.reset(1'b0)
+
+);	
+	
+	
+assign	LCD_ON	=	1'b1;
+assign	LCD_BLON	=	1'b1;
+
+assign LEDR = collisionDetect;
+
+endmodule

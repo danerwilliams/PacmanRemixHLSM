@@ -1,0 +1,128 @@
+Restore Archived Project report for FineAL
+Tue Dec 10 15:09:17 2019
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Tue Dec 10 15:09:17 2019 ;
+; Revision Name                   ; FineAL                                ;
+; Top-level Entity Name           ; system_de2                            ;
+; Family                          ; Cyclone IV E                          ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'G:/My Drive/LogicLabs/AllTheClocks/FINALFOREVER.qar' into the 'G:/My Drive/LogicLabs/AllTheClocks/FINALFOREVER_restored/' directory
+Info: Generated report 'FineAL.restore.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/18.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Tue Dec 10 15:09:17 2019
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++-----------------------------------+
+; Files Restored                    ;
++-----------------------------------+
+; File Name                         ;
++-----------------------------------+
+; qar_info.json                     ;
+; Altera_UP_Audio_Bit_Counter.v     ;
+; Altera_UP_Audio_In_Deserializer.v ;
+; Altera_UP_Audio_Out_Serializer.v  ;
+; Altera_UP_Clock_Edge.v            ;
+; Altera_UP_PS2_Command_Out.v       ;
+; Altera_UP_PS2_Data_In.v           ;
+; Altera_UP_SYNC_FIFO.v             ;
+; Audio_Clock.v                     ;
+; Audio_Controller.v                ;
+; FineAL.qpf                        ;
+; FineAL.qsf                        ;
+; LCD_Display.v                     ;
+; LCD_ram.v                         ;
+; PS2_Controller.v                  ;
+; add.v                             ;
+; ascii.v                           ;
+; avconf.v                          ;
+; background.mem                    ;
+; background_rom.v                  ;
+; background_rom_tb.v               ;
+; controller.v                      ;
+; controller_tb.v                   ;
+; countScore.v                      ;
+; datapath.v                        ;
+; datapath_tb.v                     ;
+; gameover.mem                      ;
+; gameover_rom.v                    ;
+; get_direction.v                   ;
+; ghost.mem                         ;
+; ghostRand.v                       ;
+; ghost_rom.v                       ;
+; harm1.v                           ;
+; harm2.v                           ;
+; i2c_controller.v                  ;
+; keycode_recognizer.v              ;
+; maze.mem                          ;
+; noteCounter.v                     ;
+; processor.v                       ;
+; processor_tb.v                    ;
+; reset_delay.v                     ;
+; space_start.v                     ;
+; sprite.mem                        ;
+; sprite_rom.v                      ;
+; sprite_rom_tb.v                   ;
+; square_wave_osc_JWS.v             ;
+; startscreen.mem                   ;
+; startscreen_rom.v                 ;
+; system.v                          ;
+; system_de2.v                      ;
+; system_de2_tb.v                   ;
+; system_tb.v                       ;
+; timerNote.v                       ;
+; vga_xy_controller.v               ;
+; assignment_defaults.qdf           ;
++-----------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

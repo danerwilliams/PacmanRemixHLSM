@@ -1,0 +1,93 @@
+
+State Machine - |system_de2|avconf:avc|mSetup_ST
+Name mSetup_ST.0000 mSetup_ST.0010 mSetup_ST.0001 
+mSetup_ST.0000 0 0 0 
+mSetup_ST.0001 1 0 1 
+mSetup_ST.0010 1 1 0 
+
+State Machine - |system_de2|LCD_Display:u1|next_command
+Name next_command.DISPLAY_CLEAR next_command.DISPLAY_OFF next_command.RESET3 next_command.RESET2 next_command.RETURN_HOME next_command.LINE2 next_command.Print_String next_command.MODE_SET next_command.DISPLAY_ON next_command.FUNC_SET 
+next_command.FUNC_SET 0 0 0 0 0 0 0 0 0 0 
+next_command.DISPLAY_ON 0 0 0 0 0 0 0 0 1 1 
+next_command.MODE_SET 0 0 0 0 0 0 0 1 0 1 
+next_command.Print_String 0 0 0 0 0 0 1 0 0 1 
+next_command.LINE2 0 0 0 0 0 1 0 0 0 1 
+next_command.RETURN_HOME 0 0 0 0 1 0 0 0 0 1 
+next_command.RESET2 0 0 0 1 0 0 0 0 0 1 
+next_command.RESET3 0 0 1 0 0 0 0 0 0 1 
+next_command.DISPLAY_OFF 0 1 0 0 0 0 0 0 0 1 
+next_command.DISPLAY_CLEAR 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |system_de2|LCD_Display:u1|state
+Name state.DISPLAY_CLEAR state.DISPLAY_OFF state.RESET3 state.RESET2 state.HOLD state.DROP_LCD_E state.RETURN_HOME state.LINE2 state.Print_String state.MODE_SET state.DISPLAY_ON state.FUNC_SET state.RESET1 
+state.RESET1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.FUNC_SET 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.DISPLAY_ON 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.MODE_SET 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.Print_String 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.LINE2 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.RETURN_HOME 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.DROP_LCD_E 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.HOLD 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.RESET2 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.RESET3 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.DISPLAY_OFF 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.DISPLAY_CLEAR 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |system_de2|system:mySystem|processor:myProcessor|controller:myController|state
+Name state.GEN_GHOST state.WAIT_FOR_PLAY state.GAMEOVER state.CHECK_WALL_COLLISION state.CHECK_GHOST_COLLISION state.DRAW_NEXT state.MOVE_INDEX state.PAUSE state.MOVE_RIGHT state.MOVE_LEFT state.MOVE_DOWN state.CHOOSE_DIRECTION state.MOVE_UP state.INIT state.WAIT state.OPENING_SCREEN state.CHECK_FREE 
+state.OPENING_SCREEN 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 
+state.INIT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 
+state.MOVE_UP 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 
+state.CHOOSE_DIRECTION 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 
+state.MOVE_DOWN 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 
+state.MOVE_LEFT 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 
+state.MOVE_RIGHT 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 
+state.PAUSE 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 
+state.MOVE_INDEX 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 
+state.DRAW_NEXT 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 
+state.CHECK_GHOST_COLLISION 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 
+state.CHECK_WALL_COLLISION 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.GAMEOVER 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.WAIT_FOR_PLAY 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.GEN_GHOST 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.CHECK_FREE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+
+State Machine - |system_de2|PS2_Controller:myPS2_Controller|s_ps2_transceiver
+Name s_ps2_transceiver.PS2_STATE_3_END_TRANSFER s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT s_ps2_transceiver.PS2_STATE_1_DATA_IN s_ps2_transceiver.PS2_STATE_0_IDLE s_ps2_transceiver.PS2_STATE_4_END_DELAYED 
+s_ps2_transceiver.PS2_STATE_0_IDLE 0 0 0 0 0 
+s_ps2_transceiver.PS2_STATE_1_DATA_IN 0 0 1 1 0 
+s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT 0 1 0 1 0 
+s_ps2_transceiver.PS2_STATE_3_END_TRANSFER 1 0 0 1 0 
+s_ps2_transceiver.PS2_STATE_4_END_DELAYED 0 0 0 1 1 
+
+State Machine - |system_de2|PS2_Controller:myPS2_Controller|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter
+Name s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION s_ps2_transmitter.PS2_STATE_0_IDLE 
+s_ps2_transmitter.PS2_STATE_0_IDLE 0 0 0 0 0 0 0 0 
+s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION 0 0 0 0 0 0 1 1 
+s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK 0 0 0 0 0 1 0 1 
+s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA 0 0 0 0 1 0 0 1 
+s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT 0 0 0 1 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT 0 0 1 0 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT 0 1 0 0 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR 1 0 0 0 0 0 0 1 
+
+State Machine - |system_de2|PS2_Controller:myPS2_Controller|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver
+Name s_ps2_receiver.PS2_STATE_3_PARITY_IN s_ps2_receiver.PS2_STATE_2_DATA_IN s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA s_ps2_receiver.PS2_STATE_0_IDLE s_ps2_receiver.PS2_STATE_4_STOP_IN 
+s_ps2_receiver.PS2_STATE_0_IDLE 0 0 0 0 0 
+s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA 0 0 1 1 0 
+s_ps2_receiver.PS2_STATE_2_DATA_IN 0 1 0 1 0 
+s_ps2_receiver.PS2_STATE_3_PARITY_IN 1 0 0 1 0 
+s_ps2_receiver.PS2_STATE_4_STOP_IN 0 0 0 1 1 
+
+State Machine - |system_de2|keycode_recognizer:myKeycode_recognizer|state
+Name state.S_E0F0XX state.S_E0XX state.S_F0XX state.S_XX state.S_E0F0 state.S_E0 state.S_F0 state.S_START 
+state.S_START 0 0 0 0 0 0 0 0 
+state.S_F0 0 0 0 0 0 0 1 1 
+state.S_E0 0 0 0 0 0 1 0 1 
+state.S_E0F0 0 0 0 0 1 0 0 1 
+state.S_XX 0 0 0 1 0 0 0 1 
+state.S_F0XX 0 0 1 0 0 0 0 1 
+state.S_E0XX 0 1 0 0 0 0 0 1 
+state.S_E0F0XX 1 0 0 0 0 0 0 1 

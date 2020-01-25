@@ -1,0 +1,269 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -14.655
+TNS   : -77.275
+
+Type  : Slow 1200mV 85C Model Setup 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : -5.370
+TNS   : -240.324
+
+Type  : Slow 1200mV 85C Model Setup 'LCD_Display:u1|CLK_400HZ'
+Slack : -5.142
+TNS   : -90.335
+
+Type  : Slow 1200mV 85C Model Setup 'avconf:avc|LUT_INDEX[1]'
+Slack : -3.709
+TNS   : -53.477
+
+Type  : Slow 1200mV 85C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -2.638
+TNS   : -127.774
+
+Type  : Slow 1200mV 85C Model Setup 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : -1.406
+TNS   : -3.917
+
+Type  : Slow 1200mV 85C Model Hold 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : 0.373
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.388
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'LCD_Display:u1|CLK_400HZ'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'avconf:avc|LUT_INDEX[1]'
+Slack : 0.537
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'LCD_Display:u1|CLK_400HZ'
+Slack : -0.483
+TNS   : -5.709
+
+Type  : Slow 1200mV 85C Model Recovery 'CLOCK_50'
+Slack : 15.688
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'LCD_Display:u1|CLK_400HZ'
+Slack : 0.793
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
+Slack : 3.675
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : -2.693
+TNS   : -140.392
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LCD_Display:u1|CLK_400HZ'
+Slack : -2.693
+TNS   : -51.523
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -1.285
+TNS   : -74.530
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : -1.285
+TNS   : -10.280
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'avconf:avc|LUT_INDEX[1]'
+Slack : 0.377
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.547
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -11.275
+TNS   : -65.309
+
+Type  : Slow 1200mV 0C Model Setup 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : -4.791
+TNS   : -212.505
+
+Type  : Slow 1200mV 0C Model Setup 'LCD_Display:u1|CLK_400HZ'
+Slack : -4.568
+TNS   : -78.193
+
+Type  : Slow 1200mV 0C Model Setup 'avconf:avc|LUT_INDEX[1]'
+Slack : -3.414
+TNS   : -49.709
+
+Type  : Slow 1200mV 0C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -2.408
+TNS   : -112.741
+
+Type  : Slow 1200mV 0C Model Setup 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : -1.304
+TNS   : -3.688
+
+Type  : Slow 1200mV 0C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.340
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'LCD_Display:u1|CLK_400HZ'
+Slack : 0.356
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'avconf:avc|LUT_INDEX[1]'
+Slack : 0.513
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'LCD_Display:u1|CLK_400HZ'
+Slack : -0.345
+TNS   : -4.005
+
+Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
+Slack : 16.068
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'LCD_Display:u1|CLK_400HZ'
+Slack : 0.751
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
+Slack : 3.349
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : -2.649
+TNS   : -138.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LCD_Display:u1|CLK_400HZ'
+Slack : -2.649
+TNS   : -51.479
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -1.285
+TNS   : -74.530
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : -1.285
+TNS   : -10.616
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'avconf:avc|LUT_INDEX[1]'
+Slack : 0.323
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.560
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -2.272
+TNS   : -19.890
+
+Type  : Fast 1200mV 0C Model Setup 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : -2.213
+TNS   : -82.116
+
+Type  : Fast 1200mV 0C Model Setup 'LCD_Display:u1|CLK_400HZ'
+Slack : -1.773
+TNS   : -25.826
+
+Type  : Fast 1200mV 0C Model Setup 'avconf:avc|LUT_INDEX[1]'
+Slack : -1.317
+TNS   : -17.751
+
+Type  : Fast 1200mV 0C Model Setup 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -0.925
+TNS   : -31.998
+
+Type  : Fast 1200mV 0C Model Setup 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : -0.324
+TNS   : -0.513
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : 0.156
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'avconf:avc|LUT_INDEX[1]'
+Slack : 0.165
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'avconf:avc|mI2C_CTRL_CLK'
+Slack : 0.175
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'LCD_Display:u1|CLK_400HZ'
+Slack : 0.183
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'LCD_Display:u1|CLK_400HZ'
+Slack : 0.276
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'CLOCK_50'
+Slack : 17.681
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'LCD_Display:u1|CLK_400HZ'
+Slack : 0.304
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
+Slack : 1.766
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'vga_xy_controller:my_vga_xy_controller|VGA_CLK'
+Slack : -1.000
+TNS   : -72.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
+Slack : -1.000
+TNS   : -58.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LCD_Display:u1|CLK_400HZ'
+Slack : -1.000
+TNS   : -39.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'system:mySystem|ghostRand:myGhost|x[0]'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'avconf:avc|LUT_INDEX[1]'
+Slack : 0.425
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.199
+TNS   : 0.000
+
+------------------------------------------------------------
